@@ -121,11 +121,17 @@ main {
 }
 
 .calendar__cell.no-events .calendar__date {
-  background: #e5e5e5;
   color: #1a1a1a;
-  border: none;
+  border: 1.5px solid #e5e5e5;
   margin: 0.5rem 0 0.25rem 0.5rem;
   display: inline-flex;
+}
+
+/* Overflow days from next month */
+.calendar__cell.is-overflow .calendar__date.has-events {
+  background: #e5e5e5;
+  color: #1a1a1a;
+  border-color: #e5e5e5;
 }
 
 
