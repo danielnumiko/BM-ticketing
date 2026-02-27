@@ -350,6 +350,7 @@ main {
   background: #e5e5e5;
   color: #1a1a1a;
   border: none;
+  pointer-events: none;
 }
 
 .event.is-sold-out .event__soldout-label {
@@ -363,6 +364,7 @@ main {
 /* ── Version toggle ─────────────────────────────── */
 
 .version-toggle {
+  opacity: 0;
   display: flex;
   gap: 0.5rem;
   padding: 1.5rem 2rem 0;

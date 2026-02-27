@@ -282,6 +282,7 @@ function buildEventEl(event) {
 
   if (event.type === 'sold-out') {
     btn.classList.add('is-sold-out');
+    btn.disabled = true;
     const label = document.createElement('span');
     label.className = 'event__soldout-label';
     label.textContent = 'Sold out';
@@ -407,5 +408,5 @@ document.querySelectorAll('.calendar__cell').forEach(cell => {
   }
 });
 
-// Open all cells on load since Version 2 is the default
 openAllCells();
+
