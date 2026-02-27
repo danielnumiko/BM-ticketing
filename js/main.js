@@ -352,11 +352,47 @@ function populateCell(cell) {
 
 // ── Interaction ──────────────────────────────────────────────────────────────
 
+let activeVersion = '2';
+
 function toggleCell(cell) {
+  if (activeVersion === '2') return;
   const dateBtn = cell.querySelector('.calendar__date');
   cell.classList.toggle('is-open');
   dateBtn.classList.toggle('is-active');
 }
+
+// ── Version toggle ───────────────────────────────────────────────────────────
+
+const stylesheet = document.getElementById('theme-stylesheet');
+
+function openAllCells() {
+  document.querySelectorAll('.calendar__cell.has-events-cell').forEach(cell => {
+    cell.classList.add('is-open');
+    cell.querySelector('.calendar__date').classList.add('is-active');
+  });
+}
+
+function closeAllCells() {
+  document.querySelectorAll('.calendar__cell').forEach(cell => {
+    cell.classList.remove('is-open');
+    const dateBtn = cell.querySelector('.calendar__date');
+    if (dateBtn) dateBtn.classList.remove('is-active');
+  });
+}
+
+document.querySelectorAll('.version-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.version-btn').forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    activeVersion = btn.dataset.version;
+    stylesheet.href = `css/styles-v${btn.dataset.version}.css`;
+    if (btn.dataset.version === '2') {
+      openAllCells();
+    } else {
+      closeAllCells();
+    }
+  });
+});
 
 // ── Init ─────────────────────────────────────────────────────────────────────
 
@@ -370,3 +406,6 @@ document.querySelectorAll('.calendar__cell').forEach(cell => {
     });
   }
 });
+
+// Open all cells on load since Version 2 is the default
+openAllCells();
