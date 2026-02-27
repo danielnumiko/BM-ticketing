@@ -326,6 +326,7 @@ main {
 .calendar__cell:hover,
 .calendar__cell.is-open:hover {
   background: #fff;
+  cursor: default;
 }
 
 .calendar__cell.no-events:hover {
