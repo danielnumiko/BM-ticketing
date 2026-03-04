@@ -248,12 +248,17 @@ main {
 }
 
 .event:hover {
-  background: #333;
+  background: #fff;
+  color: #1a1a1a;
 }
 
 .event:hover .event__name {
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.event:hover .event__time {
+  color: #555;
 }
 
 .event:last-child {
